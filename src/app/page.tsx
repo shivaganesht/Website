@@ -2,39 +2,19 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import Hero from '../components/Hero'
+import Hero from '../components/Hero-minimal'
 import About from '../components/About'
 import Projects from '../components/Projects'
 import Learning from '../components/Learning'
 import Contact from '../components/Contact'
-import Navigation from '../components/Navigation'
+import Navigation from '../components/Navigation-minimal'
 import EasterEgg from '../components/EasterEgg'
 
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false)
-  const [activeSection, setActiveSection] = useState('hero')
   
   useEffect(() => {
     setIsLoaded(true)
-    
-    // Intersection Observer for active section tracking
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id)
-          }
-        })
-      },
-      { threshold: 0.3 }
-    )
-
-    const sections = document.querySelectorAll('section[id]')
-    sections.forEach((section) => observer.observe(section))
-
-    return () => {
-      sections.forEach((section) => observer.unobserve(section))
-    }
   }, [])
 
   return (
@@ -91,7 +71,7 @@ export default function Home() {
             />
           </div>
 
-          <Navigation activeSection={activeSection} />
+          <Navigation />
           
           <main className="relative z-10">
             <Hero />

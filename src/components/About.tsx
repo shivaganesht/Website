@@ -1,30 +1,53 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { MapPin, Code, Rocket, Users } from 'lucide-react'
+import { useState } from 'react'
+import { Code, Zap, Users, BookOpen, Heart, Sparkles, Award, Trophy, MapPin } from 'lucide-react'
 
 const About = () => {
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null)
   const skills = [
     'Python', 'TensorFlow', 'PyTorch', 'JavaScript', 'TypeScript', 
-    'React', 'Next.js', 'Node.js', 'AWS', 'Azure', 'Docker', 'Kubernetes'
+    'React', 'Next.js', 'Node.js', 'AWS', 'Azure', 'Docker', 'Kubernetes',
+    'FastAPI', 'PostgreSQL', 'Redis', 'Machine Learning', 'Deep Learning', 'NLP'
   ]
 
   const highlights = [
-    {
-      icon: Rocket,
-      title: 'Startup Founder',
-      description: 'Building matriXO, an AI-powered EdTech platform'
+    { 
+      icon: Code, 
+      title: 'Full Stack Development', 
+      description: 'Next.js, React, Node.js, Python, AI/ML',
+      gradient: 'from-neon-cyan to-blue-400',
+      glow: 'glow-cyan'
     },
-    {
-      icon: Code,
-      title: 'AI/ML Engineer',
-      description: 'Specializing in deep learning and transformer models'
+    { 
+      icon: Zap, 
+      title: 'AI & Machine Learning', 
+      description: 'TensorFlow, PyTorch, Deep Learning, NLP',
+      gradient: 'from-neon-purple to-indigo-400',
+      glow: 'glow-purple'
     },
-    {
-      icon: Users,
-      title: 'Community Builder',
-      description: 'Passionate about fostering tech communities'
-    }
+    { 
+      icon: Users, 
+      title: 'EdTech Innovation', 
+      description: 'Learning Platforms, Community Building',
+      gradient: 'from-neon-pink to-rose-400',
+      glow: 'glow-pink'
+    },
+    { 
+      icon: BookOpen, 
+      title: 'Technical Leadership', 
+      description: 'Team Management, Product Strategy',
+      gradient: 'from-emerald-400 to-green-400',
+      glow: 'glow-green'
+    },
+  ]
+
+  const achievements = [
+    { icon: Award, text: 'Founder & CEO at matriXO', highlight: 'Leadership' },
+    { icon: Trophy, text: '500+ Students Mentored', highlight: 'Impact' },
+    { icon: Sparkles, text: '20+ AI/ML Projects', highlight: 'Innovation' },
+    { icon: Heart, text: 'Open Source Contributor', highlight: 'Community' },
   ]
 
   return (
